@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://c12ulhg5h7104"]
+
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_rlojg"]
+[ext_resource type="FontFile" uid="uid://cn5y2jd5ek82d" path="res://Asssets/font/Kenney Blocks.ttf" id="2_6c4ov"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mqxs"]
+bg_color = Color(0.84, 0, 0.0139998, 0.513726)
+
+[sub_resource type="LabelSettings" id="LabelSettings_67k7y"]
+font = ExtResource("2_6c4ov")
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_bj2t1"]
+font = ExtResource("2_6c4ov")
+font_size = 42
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rlojg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 226.0
+offset_right = 960.0
+offset_bottom = 526.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mqxs")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -110.0
+offset_right = 139.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_67k7y")
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SCORE: 9999"
+label_settings = SubResource("LabelSettings_bj2t1")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 44.5
+offset_right = 50.0
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "RETRY"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
